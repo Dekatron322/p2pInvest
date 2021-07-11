@@ -30,3 +30,11 @@ def profile(request):
             }
 	return render(request, "dashboard/profile.html", context )
 
+
+def kyc(request):
+	context = {}
+
+	return render(request, "dashboard/kyc.html", context)
+
+		
+
