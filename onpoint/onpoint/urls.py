@@ -25,10 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('dashboard/', include('dashboard.urls')),
-    path('login', DashboardViews.login, name="login"),
-    path('signup', DashboardViews.signup, name="signup"),
-    path('profile', DashboardViews.profile, name="profile"),
-    path('kyc', DashboardViews.kyc, name="kyc"),
+    
 
 ]
 

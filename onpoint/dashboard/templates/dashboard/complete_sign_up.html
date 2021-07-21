@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
+  <title>Complete Sign Up.</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,23 +22,21 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-yellow" >
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Login</b></a>
+      <a href="../../index2.html" class="h1"><b>Complete your sign up</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">You have to send $5 worth of BNB to the Binance Smart Chain wallet below:<br />
+        <small>0x100000000000000000000000000000000000</small>
+      </p>
 
       <form method="post">
         {% csrf_token %}
         <div class="input-group mb-3">
-          <input name="username" type="email" class="form-control" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text" style="background-color: #2d3653">
-              <span style="color: #f5bd02;" class="fas fa-envelope"></span>
-            </div>
-          </div>
+          <br /><br /><br />
+          <p>Enter or paste the wallet address you made the registration payment from.</p>
         </div>
         <div class="input-group mb-3">
-          <input name="password1" type="password" class="form-control" placeholder="Password">
+          <input name="payment_wallet_address" type="text" class="form-control" placeholder="Paste or input your wallet address.">
           <div class="input-group-append">
             <div class="input-group-text" style="background-color: #2d3653">
               <span class="fas fa-lock" style="color: #f5bd02;"></span>
@@ -46,27 +44,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Complete!</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
-      <!-- /.social-auth-links -->
-      <br /><br /><br />
-      <p class="mb-0">
-        <a href="{% url 'dashboard:sign_up' %}" class="text-center">Don't have an account, create one!</a>
-      </p>
     </div>
     <!-- /.card-body -->
   </div>
