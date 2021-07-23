@@ -81,7 +81,7 @@
         </div>
         
     </header>
-    <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="shopping-cart.html" style="background-color: #0e1326; color: #f5bd02">Home</a><a class="ps-btn" href="checkout.html" style="background-color: #8b511f; color: #0e1326">About</a><a style="padding-left: 10px; padding-right: 10px; background-color: #0e1326; color: #f5bd02" class="ps-btn" href="checkout.html">Contact</a></nav>
+    <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="{% url 'dashboard:sign_up' %}" style="background-color: #0e1326; color: #f5bd02">SingUp</a><a class="ps-btn" href="checkout.html" style="background-color: #8b511f; color: #0e1326">Contact</a><a style="padding-left: 10px; padding-right: 10px; background-color: #0e1326; color: #f5bd02" class="ps-btn" href="{% url 'dashboard:sign_in' %}">SignIn</a></nav>
     <div class="ps-panel--sidebar" id="cart-mobile">
         
     </div>

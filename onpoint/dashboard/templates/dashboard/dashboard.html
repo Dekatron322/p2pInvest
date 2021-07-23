@@ -250,38 +250,31 @@
               <!-- ./card-body -->
               <div class="card-footer">
                 <div class="row">
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-4 col-4">
                     <div class="description-block border-right">
                       <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
-                      <h5 class="description-header">$35,210.43</h5>
-                      <span class="description-text">TOTAL REVENUE</span>
+                      <h3 class="description-header" id="btc-price">------</h3>
+                      <span class="description-text">BTC/BUSD</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-4 col-4">
                     <div class="description-block border-right">
                       <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
-                      <h5 class="description-header">$10,390.90</h5>
-                      <span class="description-text">TOTAL COST</span>
+                      <h5 class="description-header" id="bnb-price">---------</h5>
+                      <span class="description-text">BNB/BUSD</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
-                      <h5 class="description-header">$24,813.53</h5>
-                      <span class="description-text">TOTAL PROFIT</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
+                  
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-4 col-4">
                     <div class="description-block">
                       <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
-                      <h5 class="description-header">1200</h5>
-                      <span class="description-text">GOAL COMPLETIONS</span>
+                      <h5 class="description-header" id="eth-price">--------</h5>
+                      <span class="description-text">ETH/BUSD</span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -937,6 +930,7 @@
   </aside>
   <!-- /.control-sidebar -->
 
+
   <!-- Main Footer -->
   <footer class="main-footer" style="background-color: #2d3653">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -947,5 +941,41 @@
   </footer>
 </div>
 <!-- ./wrapper -->
+<script type="text/javascript">
+  let ws = new WebSocket("wss://stream.binance.com:9443/ws/ethbusd@trade");
+  let bs = new WebSocket("wss://stream.binance.com:9443/ws/btcbusd@trade");
+  let bn = new WebSocket("wss://stream.binance.com:9443/ws/bnbbusd@trade");
+  let stockPriceElement = document.getElementById('btc-price');
+  let stockPriceElements = document.getElementById('eth-price');
+  let bnbPriceElements = document.getElementById('bnb-price');
+  let lastPrice = null;
+
+  bs.onmessage = (event) => {
+    let stockObject = JSON.parse(event.data)
+    let price = parseFloat(stockObject.p).toFixed(2);
+    stockPriceElement.innerText = price;
+
+    stockPriceElement.style.color = !lastPrice || lastPrice === price ? 'black' : price > lastPrice ? 'green' : 'red';
+    lastPrice = price;
+}
+
+  ws.onmessage = (event) => {
+    let stockObject = JSON.parse(event.data)
+    let price = parseFloat(stockObject.p).toFixed(2);
+    stockPriceElements.innerText = price;
+
+    stockPriceElements.style.color = !lastPrice || lastPrice === price ? 'black' : price > lastPrice ? 'green' : 'red';
+    lastPrice = price;
+}
+
+bn.onmessage = (event) => {
+    let stockObject = JSON.parse(event.data)
+    let price = parseFloat(stockObject.p).toFixed(2);
+    bnbPriceElements.innerText = price;
+
+    bnbPriceElements.style.color = !lastPrice || lastPrice === price ? 'black' : price > lastPrice ? 'green' : 'red';
+    lastPrice = price;
+}
+</script>
 
 {% endblock %}
