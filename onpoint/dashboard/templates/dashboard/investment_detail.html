@@ -43,46 +43,21 @@
               <!-- form start -->
               <br /><br /><br />
 
-              {% if investments %}
-                      <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap">
-                          <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>Date</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            
-                              {% for item in investments %}
-                                <tr>
-                                  <td>{{ item.id }}</td>
-                                  <td>{{ item.pub_date }}</td>
-                                  <td>
-                                    <a class="btn btn-default" href="{% url 'dashboard:investment_detail' item.id %}">
-                                      View more
-                                    </a>
-                                  </td>
-                                </tr>
-                              {% endfor %}
-                            
-                            
-                          </tbody>
-                        </table>
-                      </div>
-                      {% else %}
+              <div class="card-body" style="background-color: #0e1326">
+              <p>You have been instructed to pay:</p>
+              <h3>{{ app_user_k.full_name }}</h3>
+              <br />
+              <p>Bank Name: {{ app_user_k.bank_name }}</p>
+              <p>Account Name: {{ app_user_k.bank_account_name }}</p>
+              <p>Account Number: {{ app_user_k.bank_account_number }}</p>
 
-                      <div class="row container">
-                        
-                        <br /><br /><br />
-                        <h2 class="container">Sorry, No Investments Yet!</h2>
-                        <br /><br /><br />
+              <br />
+              <h1>Timer: 24hr::30min::00secs</h1>
 
-                      </div>                
+              <br /><br />
+              <small>You are to make this payment within the next few hours else you will be deactivated, hereby losing your registration fee!</small>
 
-                      {% endif %}
-
+              
 
             </div>
             <!-- /.card -->

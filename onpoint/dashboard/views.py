@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import UserForm
 
-from dashboard.models import AppUser
+from dashboard.models import *
 
 from django.shortcuts import render
 from django.utils import timezone
@@ -194,10 +194,43 @@ def ProfileView(request):
 
 
 def InvestmentView(request):
-	context = {
-			
-            }
-	return render(request, "dashboard/investments.html", context )
+
+	app_user = AppUser.objects.get(user__pk=request.user.id)
+
+	investments = Investment.objects.filter(app_user__pk=app_user.id).order_by('-pub_date')
+
+	if request.method == "POST":
+		pass
+
+
+
+	else:
+
+		context = {
+			"investments": investments,
+	    }
+		return render(request, "dashboard/investments.html", context )
+
+
+
+def InvestmentDetailView(request, investment_id):
+	app_user = AppUser.objects.get(user__pk=request.user.id)
+
+	investment = Investment.objects.get(id=investment_id)
+	app_user_k = AppUser.objects.get(id=investment.who_app_user_id)
+
+	if request.method == "POST":
+		pass
+
+
+
+	else:
+
+		context = {
+			"investment": investment,
+			"app_user_k": app_user_k,
+	    }
+		return render(request, "dashboard/investment_detail.html", context )
 
 
 
@@ -212,12 +245,81 @@ def CommitView(request):
 
 
 def MakeCommitView(request, package_type):
+
+	app_user = AppUser.objects.get(user__pk=request.user.id)
+
+	if request.method == "POST":
+		investment = Investment.objects.create(app_user=app_user, package_type=package_type)
+		investment.save()
+
+		return HttpResponseRedirect(reverse("dashboard:index"))
+
+
+	else:
+
+		context = {
+				
+	            }
+		return render(request, "dashboard/make_commit.html", context )
+
+
+
+
+####################ADMIN ARENA
+
+def AdminView(request):
+
+	investments = Investment.objects.all().order_by('-pub_date')
 	context = {
+
+		"investments": investments,
 			
             }
-	return render(request, "dashboard/make_commit.html", context )
+	return render(request, "dashboard/admin.html", context )
 
 
+
+def AInvestmentDetailView(request, investment_id):
+
+	investment = Investment.objects.get(id=investment_id)
+	app_users_k = AppUser.objects.filter(status=True)
+
+	app_users = []
+	for item in app_users_k:
+		if item.id == investment.app_user.id:
+			pass
+
+		else:
+			app_users.append(item)
+
+
+	if request.method == "POST":
+
+		amount = request.POST.get("amount")
+		who_app_user_id = request.POST.get("who_app_user_id")
+
+		investment.amount = amount
+		investment.who_app_user_id = who_app_user_id
+		investment.save()
+
+		return HttpResponseRedirect(reverse("dashboard:admin"))
+
+
+	else:
+
+		context = {
+			"investment": investment,
+			"app_users": app_users,
+	    }
+
+		return render(request, "dashboard/a_investment_detail.html", context )
+
+
+
+
+
+
+##########################
 
 
 def SignOutView(request):

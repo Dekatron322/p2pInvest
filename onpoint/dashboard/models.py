@@ -43,34 +43,34 @@ class AppUser(models.Model):
 
 
 
+class Investment(models.Model):
+	app_user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
 
-class Commit(models.Model):
-
-	#kyc
-	sender_app_user_id = models.CharField(max_length=500, default="none")
-	receiver_app_user_id = models.CharField(max_length=500, default="none")
-
-	proof_photo = models.FileField(upload_to='account_files/commit_proof_photos/', blank=True, default="default_files/default_face.png")
-
+	package_type = models.CharField(max_length=500, default="none")
 
 	amount = models.CharField(max_length=500, default="none")
-
-	pub_date = models.DateTimeField(default=timezone.now)
-
-	def __str__(self):
-		return self.public_key
-
-
-
-
-class CommitSheet(models.Model):
-	#kyc
-	app_user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
-	commit = models.ForeignKey(Commit, on_delete=models.CASCADE)
+	who_app_user_id = models.CharField(max_length=500, default="none")
 
 	status = models.BooleanField(default=False)
 
+	proof_photo1 = models.FileField(upload_to='app_files/proof_photos/', blank=True, default="default_files/default.png")
+	proof_photo2 = models.FileField(upload_to='app_files/proof_photos/', blank=True, default="default_files/default.png")
+
 	pub_date = models.DateTimeField(default=timezone.now)
 
 	def __str__(self):
-		return self.public_key
+		return self.pub_date
+
+
+
+
+class History(models.Model):
+	app_user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+	amount = models.CharField(max_length=500, default="none")
+	who_app_user_id = models.CharField(max_length=500, default="none")
+
+	pub_date = models.DateTimeField(default=timezone.now)
+
+	def __str__(self):
+		return self.pub_date
+

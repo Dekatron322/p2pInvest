@@ -59,7 +59,12 @@
                 <div class="col-md-6">
                   <br /><br />
                   <p>Click complete to ready to be invest, you will be paried with someone to pay.</p>
-                  <a href="{% url 'dashboard:make_commit' '2' %}">Complete</a>
+                  <form method="post">
+                    {% csrf_token %}
+                    <button type="submit">Complete</button>
+                    
+                  </form>
+                  
                 </div>
 
               </div>
