@@ -16,29 +16,68 @@
   <link rel="stylesheet" href="{% static 'dashboard/dist/css/adminlte.min.css' %}">
 </head> 
 <body class="hold-transition login-page" style="background-color: #0e1326">
+  <style type="text/css">
+    
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+        }
+        @keyframes show-toast {
+        0%   {bottom: -100%;}
+        20%  {bottom: 50px;}
+        80%  {bottom: 50px;}
+        100% {bottom: -10%;}
+    }
+
+    .notification.is-toast {
+        z-index: 1;
+        position: fixed;
+        bottom: 100%;
+        right: 20px;
+        animation-name: show-toast;
+        animation-duration: 10s;
+    }
+@media(max-width: 450px) {
+    h3{
+      font-size: 15px !important;
+    }
+  }
+</style>
+
+  {% if messages %}
+    {% for message in messages %}
+        <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+            {{ message }}
+        </div>
+    {% endfor %}
+  {% endif %}
 
 <div class="login-box" style="background-color: #0e1326">
 
   <!-- /.login-logo -->
   <div class="card card-outline card-yellow" >
-    <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Complete your sign up</b></a>
+    <div class="card-header text-center" style="background-color: #343a40">
+      <a href="../../index2.html" class="h2"><b style="color: #f5bd02">Complete sign up</b></a>
     </div>
-    <div class="card-body">
-      <p class="login-box-msg">You have to send $5 worth of BNB to the Binance Smart Chain wallet below:<br />
-        <small>0x100000000000000000000000000000000000</small>
+    <div class="card-body" style="background-color: #343a40">
+      <p class="login-box-msg" style="color: #fff">You have to send $5 worth of BNB to the Binance Smart Chain wallet below:<br />
+        <small style="color: #f5bd02">0x100000000000000000000000000000000000</small>
       </p>
+      <div class="col-12">
+        
+            <button style="background-color: #0e1326" type="submit" class="btn btn-primary btn-block copy-btn" data-hex="0x100000000000000000000000000000000000">copy to clipboard!</button>
+          </div>
 
       <form method="post">
         {% csrf_token %}
         <div class="input-group mb-3">
           <br /><br /><br />
-          <p>Enter or paste the wallet address you made the registration payment from.</p>
+          <p style="color: #fff">Enter or paste the wallet address you made the registration payment from.</p>
         </div>
         <div class="input-group mb-3">
-          <input name="payment_wallet_address" type="text" class="form-control" placeholder="Paste or input your wallet address.">
+          <input style="background-color: #0e1326; color: #fff" name="payment_wallet_address" type="text" class="form-control" placeholder="Paste or input your wallet address.">
           <div class="input-group-append">
-            <div class="input-group-text" style="background-color: #2d3653">
+            <div class="input-group-text" style="background-color: #0e1326">
               <span class="fas fa-lock" style="color: #f5bd02;"></span>
             </div>
           </div>
@@ -58,6 +97,21 @@
   <!-- /.card -->
 </div>
 <!-- /.login-box -->
+<script type="text/javascript">
+  const copyBtns = [...document.getElementsByClassName('copy-btn')]
+  let previous = null
+
+  copyBtns.forEach(btn=> btn.addEventListener('click', ()=>{
+    const number = btn.getAttribute('data-hex')
+    navigator.clipboard.writeText(number)
+    btn.textContent = 'copied'
+
+    if (previous) {
+      previous.textContent = 'click'
+    }
+    previous = btn
+  }))
+</script>
 
 <!-- jQuery -->
 <script src="{% static 'dashboard/plugins/jquery/jquery.min.j' %}"></script>

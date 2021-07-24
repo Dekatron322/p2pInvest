@@ -15,8 +15,8 @@ class AppUser(models.Model):
 
 	#kyc
 	house_address = models.TextField(default="none", null=True)
-	place_of_work = models.CharField(max_length=500, default="none")
-	place_of_work_address = models.TextField(default="none", null=True)
+	#place_of_work = models.CharField(max_length=500, default="none")
+	#place_of_work_address = models.TextField(default="none", null=True)
 	dob = models.CharField(max_length=500, default="none", null=True)
 	age = models.IntegerField(default=0)
 	id_image = models.FileField(upload_to='account_files/id_images/', blank=True, default="default_files/default_face.png")
@@ -26,6 +26,7 @@ class AppUser(models.Model):
 	language = models.CharField(max_length=500, default="none")
 	phone_no = models.CharField(max_length=500, default="none", null=True)
 	bank_name = models.CharField(max_length=500, default="none")
+	bank_verification_number = models.CharField(max_length=500, default="none", null=True)
 	bank_account_number = models.CharField(max_length=500, default="none")
 	bank_account_name =models.CharField(max_length=500, default="none")
 

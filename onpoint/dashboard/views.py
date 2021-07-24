@@ -3,6 +3,9 @@ from .forms import UserForm
 
 from dashboard.models import *
 
+from django.contrib import messages
+from dashboard.models import AppUser
+
 from django.shortcuts import render
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
@@ -38,14 +41,18 @@ def SignInView(request):
 
 				request.session['address'] = public_key
 				request.session['key'] = private_key
-				
+				messages.success(request, "Welcome Onboard")
 				return HttpResponseRedirect(reverse("dashboard:index"))
 			else:
-				return HttpResponse("Sorry, Invalid Login Details")
+				messages.warning(request, "Sorry, Invalid Login Details")
+				return HttpResponseRedirect(reverse("dashboard:sign_in"))
+				#return HttpResponse("Sorry, Invalid Login Details")
 				#return HttpResponseRedirect(reverse("main:sign_in"))
 
 		else:
-			return HttpResponse("Sorry, Invalid Login Details")
+			messages.warning(request, "Sorry, Invalid Login Details")
+			return HttpResponseRedirect(reverse("dashboard:sign_in"))
+			#return HttpResponse("Sorry, Invalid Login Details")
 			#return HttpResponseRedirect(reverse("main:sign_in"))
 	else:
 		context = {}
@@ -63,13 +70,17 @@ def SignUpView(request):
 
 
 		if request.POST.get("password2") != request.POST.get("password1"):
-			return HttpResponse(str("Sorry, Make Sure both passwords match"))
+			#return HttpResponse(str("Sorry, Make Sure both passwords match"))
+			messages.warning(request, "Make sure both passwords match")
+			return HttpResponseRedirect(reverse("dashboard:sign_up"))
 
 			
 		else:
 			try:
 				AppUser.objects.get(user__username=request.POST.get("username"))
-				return HttpResponse(str("Sorry, Email Address already taken, try another one!"))
+				messages.warning(request, "Email Address already taken, try another one!")
+				return HttpResponseRedirect(reverse("dashboard:sign_up"))
+				#return HttpResponse(str("Sorry, Email Address already taken, try another one!"))
 				
 
 
@@ -92,7 +103,7 @@ def SignUpView(request):
 						login(request, user)
 
 						app_user = AppUser.objects.get(user__pk=request.user.id)
-						
+						messages.warning(request, "One Final Step!")
 						return HttpResponseRedirect(reverse("dashboard:complete_sign_up", args=[email,]))
 
 	else:
@@ -139,7 +150,7 @@ def ProfileView(request):
 	if request.method == "POST":
 		full_name = request.POST.get("full_name")
 		house_address = request.POST.get("house_address")
-		place_of_work = request.POST.get("place_of_work")
+		#place_of_work = request.POST.get("place_of_work")
 		dob = request.POST.get("dob")
 		id_number = request.POST.get("id_number")
 		state_of_origin = request.POST.get("state_of_origin")
@@ -149,11 +160,12 @@ def ProfileView(request):
 		bank_name = request.POST.get("bank_name")
 		bank_account_name = request.POST.get("bank_account_name")
 		bank_account_number = request.POST.get("bank_account_number")
+		bank_verification_number = request.POST.get("bank_verification_number")
 	
 
 		app_user.full_name = full_name
 		app_user.house_address = house_address
-		app_user.place_of_work = place_of_work
+		#app_user.place_of_work = place_of_work
 		app_user.dob = dob
 		app_user.id_number = id_number
 		app_user.state_of_origin = state_of_origin
@@ -162,6 +174,7 @@ def ProfileView(request):
 		app_user.phone_no = phone_no
 		app_user.bank_name = bank_name
 		app_user.bank_account_name = bank_account_name
+		app_user.bank_verification_number = bank_verification_number
 		app_user.bank_account_number = bank_account_number
 
 		try:

@@ -49,12 +49,12 @@
                         </div>
                         <div class="ps-block--user-header">
                             
-                            <div class="ps-block__right"><a href="{% url 'dashboard:sign_up' %}" style="font-size: 12px" class="ps-btn">Signup</a></div>
+                            <div class="ps-block__right"><a href="{% url 'dashboard:sign_up' %}" style="font-size: 14px; background-color: #bba14f; color: #000; padding-top: 10px; padding-bottom: 10px;" class="ps-btn">Signup</a></div>
                         </div>
 
                         <div class="ps-block--user-header">
                             
-                            <div class="ps-block__right"><a href="{% url 'dashboard:sign_in' %}" style="font-size: 12px" class="ps-btn">Login</a></div>
+                            <div class="ps-block__right"><a href="{% url 'dashboard:sign_in' %}" style="font-size: 14px; background-color: #bba14f; color: #000; padding-top: 10px; padding-bottom: 10px;" class="ps-btn">Login</a></div>
                         </div>
                     </div>
                 </div>
@@ -76,12 +76,12 @@
             <div class="navigation__left"><a class="ps-logo" href="index.html"><h5  style="color: #f5bd02">OnpointxCurrency</h5></a></div>
             <div class="ps-block--user-header">
                 <div class="ps-block__left"><i style="color: #f5bd02" class="icon-user"></i></div>
-                <div class="ps-block__right"><a href="my-account.html" style="color: #f5bd02">Login</a><a href="my-account.html" style="color: #f5bd02">Register</a></div>
+                <div class="ps-block__right"><a href="{% url 'dashboard:sign_up' %}" style="color: #f5bd02">Sign up</a><a href="{% url 'dashboard:sign_in' %}" style="color: #f5bd02">Sign In</a></div>
             </div>
         </div>
         
     </header>
-    <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="shopping-cart.html" style="background-color: #0e1326; color: #f5bd02">Home</a><a class="ps-btn" href="checkout.html" style="background-color: #8b511f; color: #0e1326">About</a><a style="padding-left: 10px; padding-right: 10px; background-color: #0e1326; color: #f5bd02" class="ps-btn" href="checkout.html">Contact</a></nav>
+    <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="{% url 'dashboard:sign_up' %}" style="background-color: #0e1326; color: #f5bd02">SingUp</a><a class="ps-btn" href="checkout.html" style="background-color: #8b511f; color: #0e1326">Contact</a><a style="padding-left: 10px; padding-right: 10px; background-color: #0e1326; color: #f5bd02" class="ps-btn" href="{% url 'dashboard:sign_in' %}">SignIn</a></nav>
     <div class="ps-panel--sidebar" id="cart-mobile">
         
     </div>
@@ -121,7 +121,7 @@
                                 <div class="ps-block__content">
                                     <h2 style="color: #0e1326; font-size: 900">Onpoint Currency!</h2>
                                      <h3 style="color: #0e1326; font-size: 900">Number 1 blockchain based peer to peer investment platform</h3>
-                                    <p style="color: #0e1326">Onpoint Currency was created with a big idea: to revolutionize the outdated peer to peer system and build a decentralized and secure investment system for individual and businesses.     </p>
+                                    <p style="color: #0e1326">Onpoint Currency was created with a big idea: to revolutionize the outdated peer to peer system and build a decentralized and secure investment system for individuals and businesses.     </p>
                                     <form class="ps-form--download-app" action="do_action" method="post">
                                         <div class="form-group--nest">
                                             <input class="form-control" type="Email" placeholder="Email Address">

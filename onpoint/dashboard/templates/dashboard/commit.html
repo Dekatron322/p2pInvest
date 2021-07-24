@@ -10,7 +10,7 @@
   <!-- Main Sidebar Container -->
   {% include 'dashboard/sidebar.html' %}
 <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" back>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -35,8 +35,8 @@
           
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
+            <div class="card card-primary" >
+              <div class="card-header" >
                 <h3 class="card-title">Commit New Investment</h3>
               </div>
               <!-- /.card-header -->
@@ -46,19 +46,109 @@
               <div class="row container">
 
 
-                <div class="col-md-4">
-                  <p>Package 1</p>
-                  <a href="{% url 'dashboard:make_commit' '1' %}">Commit</a>
-                </div>
+                
 
                 <div class="col-md-4">
-                  <p>Package 2</p>
-                  <a href="{% url 'dashboard:make_commit' '2' %}">Commit</a>
+                  <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile" style="background-color: #0e1326">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="http://superstaressentials.com/assets/images/bronzepackage.png"
+                       alt="User profile picture">
                 </div>
 
-                <div class="col-md-4">
-                  <p>Package 3</p>
-                  <a href="{% url 'dashboard:make_commit' '3' %}">Commit</a>
+                <h3 style="color: #0e1326" class="profile-username text-center">{{ app_user.full_name }}</h3>
+
+                <p style="background-color: #0e1326" class="text-muted text-center">{{ app_user.public_key }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Total Commit:</b> <a class="float-right">Yes</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Expected Return</b> <a class="float-right">543</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Time Given</b> <a class="float-right">{{ app_user.bank_verification_number }}</a>
+                  </li>
+                </ul>
+
+                <a href="{% url 'dashboard:make_commit' '1' %}" class="btn btn-primary btn-block"><b>Commit</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <div class="col-md-4">
+
+                  <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile" style="background-color: #0e1326">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="https://theislandnow.com/wp-content/uploads/2018/01/gold-package-e1517317572725.png"
+                       alt="User profile picture">
+                </div>
+
+                <h3 style="color: #0e1326" class="profile-username text-center">{{ app_user.full_name }}</h3>
+
+                <p style="background-color: #0e1326" class="text-muted text-center">{{ app_user.public_key }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Total Commit:</b> <a class="float-right">Yes</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Expected Return</b> <a class="float-right">543</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Time Given</b> <a class="float-right">{{ app_user.bank_verification_number }}</a>
+                  </li>
+                </ul>
+
+                <a href="{% url 'dashboard:make_commit' '2' %}" class="btn btn-primary btn-block"><b>Commit</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <div class="col-md-4">
+            <!-- Main content -->
+    
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile" style="background-color: #0e1326">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Gb4ocZaKNbLLRjTFMM7CiEjmFnbmRuoqYI9TaKXptwGr92CPtQiLbOu008LIaipf_wQ&usqp=CAU"
+                       alt="User profile picture">
+                </div>
+
+                <h3 style="color: #0e1326" class="profile-username text-center">{{ app_user.full_name }}</h3>
+
+                <p style="background-color: #0e1326" class="text-muted text-center">{{ app_user.public_key }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Total Commit:</b> <a class="float-right">Yes</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Expected Return</b> <a class="float-right">543</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Time Given</b> <a class="float-right">{{ app_user.bank_verification_number }}</a>
+                  </li>
+                </ul>
+
+                <a href="{% url 'dashboard:make_commit' '3' %}" class="btn btn-primary btn-block"><b>Commit</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+                  
                 </div>
 
 
