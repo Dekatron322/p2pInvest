@@ -14,14 +14,16 @@ urlpatterns = [
     path('profile/', views.ProfileView, name="profile"),
     path('investment/', views.InvestmentView, name="investment"),
     path('investment-detail/<int:investment_id>/', views.InvestmentDetailView, name="investment_detail"),
+    path('investment-detail/k//<int:investment_id>/', views.InvestmentDetailKView, name="investment_detail_k"),
+
     path('commit/', views.CommitView, name="commit"),
     path('make-commit/<str:package_type>/', views.MakeCommitView, name="make_commit"),
 
 
     path('admin/', views.AdminView, name="admin"),
     path('admin-investment-detail/<int:investment_id>/', views.AInvestmentDetailView, name="a_investment_detail"),
+    path('admin-user-detail/<int:app_user_id>/', views.AAppUserDetailView, name="a_app_user_detail"),
 
     
-
 
 ]

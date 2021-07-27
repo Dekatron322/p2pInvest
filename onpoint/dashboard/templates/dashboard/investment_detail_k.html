@@ -44,12 +44,15 @@
               <br /><br /><br />
 
               <div class="card-body" style="background-color: #0e1326">
-              <p>You have been instructed to pay:</p>
-              <h3>{{ app_user_k.full_name }}</h3>
+              <h2>Congratulations!</h2>
+              <p>You have been peered to receive payment from:</p>
+              <h3>{{ investment.app_user.full_name }}</h3>
               <br />
-              <p>Bank Name: {{ app_user_k.bank_name }}</p>
-              <p>Account Name: {{ app_user_k.bank_account_name }}</p>
-              <p>Account Number: {{ app_user_k.bank_account_number }}</p>
+              <p>Amount: {{ investment.amount }}</p>
+              <p>Phone Number: {{ investment.app_user.phone_no }}</p>
+              <p>Language: {{ investment.app_user.language }}</p>
+
+              <h2>Payment Status: {{ investment.paid_status }}</h2>
 
               <br />
               <h1>Due Date: {{ investment.due_date }}</h1>
@@ -59,42 +62,26 @@
                 {% csrf_token %}
 
                 <div class="row">
-                  <p>Upload proof of payment once you have made the payment.</p>
+                  <p>View/Download proof of payments.</p>
                 </div>
                 <div class="row">
-
-                    <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                      <label for="exampleInputFile">Upload Proof of payment 1</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input name="proof_photo1" type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <a href="{{ investment.proof_photo1.url }}">View/Download Proof of payment Image 1</a>
                 </div>
 
-                  <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                      <label for="exampleInputFile">Upload Proof of payment 2</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input name="proof_photo2" type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                    </div>
+                <br />
+                <div class="row">
+                    <a href="{{ investment.proof_photo2.url }}">View/Download Proof of payment Image 2</a>
+                </div>
 
-                    <div class="card-footer">
+                <br /><br />
+                <select class="form-control" name="payment_status">
+                    <option value="on" selected="selected">YES, I HAVE RECEIVED PAYMENT.</option>
+                    <option value="off">NO, I HAVEN'T RECEIVED ANY PAYMENT.</option>
+                </select>
+
+                  
+
+                <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
 

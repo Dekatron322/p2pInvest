@@ -211,6 +211,8 @@ def InvestmentView(request):
 	app_user = AppUser.objects.get(user__pk=request.user.id)
 
 	investments = Investment.objects.filter(app_user__pk=app_user.id).order_by('-pub_date')
+	investments_k = Investment.objects.filter(who_app_user_id=app_user.id).order_by('-pub_date')
+
 
 	if request.method == "POST":
 		pass
@@ -221,8 +223,10 @@ def InvestmentView(request):
 
 		context = {
 			"investments": investments,
+			"investments_k": investments_k,
 	    }
 		return render(request, "dashboard/investments.html", context )
+
 
 
 
@@ -230,20 +234,74 @@ def InvestmentDetailView(request, investment_id):
 	app_user = AppUser.objects.get(user__pk=request.user.id)
 
 	investment = Investment.objects.get(id=investment_id)
-	app_user_k = AppUser.objects.get(id=investment.who_app_user_id)
 
 	if request.method == "POST":
-		pass
+		proof_photo1 = request.FILES["proof_photo1"]
+		proof_photo2 = request.FILES["proof_photo2"]
+
+		investment.proof_photo1 = proof_photo1
+		investment.proof_photo2 = proof_photo2
+
+		investment.save()
+
+		return HttpResponseRedirect(reverse("dashboard:index"))
 
 
 
 	else:
 
-		context = {
-			"investment": investment,
-			"app_user_k": app_user_k,
-	    }
-		return render(request, "dashboard/investment_detail.html", context )
+		if investment.peered_status == False:
+			return HttpResponse("Sorry, You have not been peered!")
+
+		else:
+
+			app_user_k = AppUser.objects.get(id=investment.who_app_user_id)
+
+			context = {
+				"investment": investment,
+				"app_user_k": app_user_k,
+		    }
+			return render(request, "dashboard/investment_detail.html", context )
+
+
+
+
+
+def InvestmentDetailKView(request, investment_id):
+	app_user = AppUser.objects.get(user__pk=request.user.id)
+
+	investment = Investment.objects.get(id=investment_id)
+
+	if request.method == "POST":
+		payment_status = request.POST.get("payment_status")
+
+		if payment_status == "on":
+			investment.paid_status = True
+			investment.save()
+
+		else:
+			investment.paid_status = False
+			investment.save()
+
+
+		return HttpResponseRedirect(reverse("dashboard:index"))
+
+
+
+	else:
+
+		if investment.peered_status == False:
+			return HttpResponse("Sorry, You have not been peered!")
+
+		else:
+
+			app_user_k = AppUser.objects.get(id=investment.who_app_user_id)
+
+			context = {
+				"investment": investment,
+				"app_user_k": app_user_k,
+		    }
+			return render(request, "dashboard/investment_detail_k.html", context )
 
 
 
@@ -283,11 +341,13 @@ def MakeCommitView(request, package_type):
 def AdminView(request):
 
 	investments = Investment.objects.all().order_by('-pub_date')
-	context = {
+	app_users = AppUser.objects.all().order_by('-pub_date')
 
+	context = {
 		"investments": investments,
-			
-            }
+		"app_users": app_users,
+    }
+
 	return render(request, "dashboard/admin.html", context )
 
 
@@ -310,12 +370,17 @@ def AInvestmentDetailView(request, investment_id):
 
 		amount = request.POST.get("amount")
 		who_app_user_id = request.POST.get("who_app_user_id")
+		due_date = request.POST.get("due_date")
 
 		investment.amount = amount
 		investment.who_app_user_id = who_app_user_id
+		investment.peered_status = True
+		investment.due_date = due_date
+
 		investment.save()
 
 		return HttpResponseRedirect(reverse("dashboard:admin"))
+
 
 
 	else:
@@ -327,6 +392,37 @@ def AInvestmentDetailView(request, investment_id):
 
 		return render(request, "dashboard/a_investment_detail.html", context )
 
+
+
+
+def AAppUserDetailView(request, app_user_id):
+
+	app_user =  AppUser.objects.get(id=app_user_id)
+
+
+	if request.method == "POST":
+
+		status = request.POST.get("status")
+
+		if status == "on":
+			app_user.status = True
+			app_user.save()
+
+		else:
+			app_user.status = False
+			app_user.save()
+
+
+		return HttpResponseRedirect(reverse("dashboard:admin"))
+
+
+
+	else:
+		context = {
+			"app_user": app_user,
+		}
+
+	return render(request, "dashboard/a_app_user_detail.html", context )
 
 
 

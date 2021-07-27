@@ -37,7 +37,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Commit New Investment</h3>
+                <h3 class="card-title">Your Commits</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -50,6 +50,8 @@
                             <tr>
                               <th>ID</th>
                               <th>Date</th>
+                              <th>Peering Status</th>
+                              <th>Payment Status</th>
                               <th></th>
                             </tr>
                           </thead>
@@ -59,6 +61,20 @@
                                 <tr>
                                   <td>{{ item.id }}</td>
                                   <td>{{ item.pub_date }}</td>
+                                  <td>
+                                    {% if item.peered_status == False %}
+                                      <p>Not Peered</p>
+                                    {% else %}
+                                      <p>Peered</p>
+                                    {% endif %}
+                                  </td>
+                                  <td>
+                                    {% if item.paid_status == False %}
+                                      <p>Not Paid</p>
+                                    {% else %}
+                                      <p>Paid</p>
+                                    {% endif %}
+                                  </td>
                                   <td>
                                     <a class="btn btn-default" href="{% url 'dashboard:investment_detail' item.id %}">
                                       View more
@@ -83,22 +99,90 @@
 
                       {% endif %}
 
-
-            </div>
-            <!-- /.card -->
-
-                    
+                    </div>
+                  </div>
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+              </div>
+            </section>
+
+
+            <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Your Investment(Peered)</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <br /><br /><br />
+
+              {% if investments_k %}
+                      <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                          <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>Date</th>
+                              <th>Payment Status</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            
+                              {% for item in investments_k %}
+                                <tr>
+                                  <td>{{ item.id }}</td>
+                                  <td>{{ item.pub_date }}</td>
+                                  <td>
+                                    {% if item.paid_status == False %}
+                                      <p>Not Paid</p>
+                                    {% else %}
+                                      <p>Paid</p>
+                                    {% endif %}
+                                  </td>
+                                  <td>
+                                    <a class="btn btn-default" href="{% url 'dashboard:investment_detail_k' item.id %}">
+                                      View more
+                                    </a>
+                                  </td>
+                                </tr>
+                              {% endfor %}
+                            
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                      {% else %}
+
+                      <div class="row container">
+                        
+                        <br /><br /><br />
+                        <h2 class="container">Sorry, No Investments Yet!</h2>
+                        <br /><br /><br />
+
+                      </div>                
+
+                      {% endif %}
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+
+
+
+
+
+
+
+
 
     <!-- Main Footer -->
   <footer class="main-footer" style="background-color: #2d3653">
