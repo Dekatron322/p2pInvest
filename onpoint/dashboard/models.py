@@ -52,7 +52,11 @@ class Investment(models.Model):
 	amount = models.CharField(max_length=500, default="none")
 	who_app_user_id = models.CharField(max_length=500, default="none")
 
-	status = models.BooleanField(default=False)
+	#due_date = models.DateField(auto_now_add=True)
+	due_date = models.CharField(max_length=500, default="none")
+
+	peered_status = models.BooleanField(default=False)
+	paid_status = models.BooleanField(default=False)
 
 	proof_photo1 = models.FileField(upload_to='app_files/proof_photos/', blank=True, default="default_files/default.png")
 	proof_photo2 = models.FileField(upload_to='app_files/proof_photos/', blank=True, default="default_files/default.png")

@@ -38,8 +38,13 @@
 
                   <div class="col-md-12 col-lg-12">
                     <div class="card">
+<<<<<<< HEAD
                       <div class="card-header" style="background-color: #f39c12; color: #0e1326">
                         <h3 class="card-title">Responsive Hover Table</h3>
+=======
+                      <div class="card-header">
+                        <h3 class="card-title">All Investments({{ investments.count }})</h3>
+>>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
 
                         
                       </div>
@@ -95,6 +100,98 @@
                       </div>                
 
                       {% endif %}
+
+
+                      <br /><br /><br />
+                      
+
+                      <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="row container center">
+
+                  <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">All Users({{ app_users.count }})</h3>
+
+                        <div class="card-tools">
+                          <div class="input-group input-group-sm">
+                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                            <div class="input-group-append">
+                              <button type="submit" class="btn btn-default">
+                                <i class="fas fa-search"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.card-header -->
+                      {% if app_users %}
+                      <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                          <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>User</th>
+                              <th>Date</th>
+                              <th>Status</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            
+                              {% for item in app_users %}
+                                <tr>
+                                  <td>{{ item.id }}</td>
+                                  <td>{{ item.full_name }}</td>
+                                  <td>{{ item.pub_date }}</td>
+                                  <td>
+                                    {% if item.status == False %}
+                                      Not Approved
+                                    {% else %}
+                                      Approved
+                                    {% endif %}
+                                  </td>
+                                  <td>
+                                    <a class="btn btn-default" href="{% url 'dashboard:a_app_user_detail' item.id %}">
+                                      Edit
+                                    </a>
+                                  </td>
+                                </tr>
+                              {% endfor %}
+                            
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                      {% else %}
+
+                      <div class="row container">
+                        
+                        <br /><br /><br />
+                        <h2 class="container">Sorry, No Users Yet!</h2>
+                        <br /><br /><br />
+
+                      </div>                
+
+                    {% endif %}
+
+
+                      <br /><br /><br />
+                      
+
                       <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
@@ -103,7 +200,23 @@
 
               
             </div>
+
+
+
+
+
+
+
+
+
+
+              
+            </div>
             <!-- /.card -->
+
+
+
+
 
                     
         
@@ -116,3 +229,12 @@
 
 
 {% endblock %}
+
+
+
+
+
+
+
+
+                    
