@@ -21,7 +21,4 @@ urlpatterns = [
     path('admin/', views.AdminView, name="admin"),
     path('admin-investment-detail/<int:investment_id>/', views.AInvestmentDetailView, name="a_investment_detail"),
 
-    
-
-
 ]

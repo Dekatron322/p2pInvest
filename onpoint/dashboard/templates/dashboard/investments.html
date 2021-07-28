@@ -41,15 +41,14 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <br /><br /><br />
-
               {% if investments %}
-                      <div class="card-body table-responsive p-0">
+                      <div class="card-body table-responsive p-0" style="background-color: #0e1326;">
                         <table class="table table-hover text-nowrap">
                           <thead>
                             <tr>
                               <th>ID</th>
                               <th>Date</th>
+                              <th>Package</th>
                               <th></th>
                             </tr>
                           </thead>
@@ -59,6 +58,7 @@
                                 <tr>
                                   <td>{{ item.id }}</td>
                                   <td>{{ item.pub_date }}</td>
+                                  <td>Package</td>
                                   <td>
                                     <a class="btn btn-default" href="{% url 'dashboard:investment_detail' item.id %}">
                                       View more
@@ -71,7 +71,10 @@
                           </tbody>
                         </table>
                       </div>
+                      <div class="card-outline" style="background-color: #f39c12"><div></div> </div>
+            <!-- /.card -->
                       {% else %}
+
 
                       <div class="row container">
                         

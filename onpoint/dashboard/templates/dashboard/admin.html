@@ -34,44 +34,25 @@
       <div class="container-fluid">
         <div class="row">
           
-          <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Admin Dashboard</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-
-              <br /><br>
-              <div class="row container center">
+          
 
                   <div class="col-md-12 col-lg-12">
                     <div class="card">
-                      <div class="card-header">
+                      <div class="card-header" style="background-color: #f39c12; color: #0e1326">
                         <h3 class="card-title">Responsive Hover Table</h3>
 
-                        <div class="card-tools">
-                          <div class="input-group input-group-sm">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                            <div class="input-group-append">
-                              <button type="submit" class="btn btn-default">
-                                <i class="fas fa-search"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
+                        
                       </div>
                       <!-- /.card-header -->
                       {% if investments %}
-                      <div class="card-body table-responsive p-0">
+                      <div class="card-body table-responsive p-0" style="background-color: #0e1326">
                         <table class="table table-hover text-nowrap">
                           <thead>
                             <tr>
                               <th>ID</th>
                               <th>User</th>
                               <th>Date</th>
+                              <th>Package Selected</th>
                               <th>Status</th>
                               <th></th>
                             </tr>
@@ -83,6 +64,7 @@
                                   <td>{{ item.id }}</td>
                                   <td>{{ item.app_user.full_name }}</td>
                                   <td>{{ item.pub_date }}</td>
+                                  <td>package</td>
                                   <td>
                                     {% if item.who_app_user_id == "none" %}
                                       Not Peered
@@ -91,7 +73,7 @@
                                     {% endif %}
                                   </td>
                                   <td>
-                                    <a class="btn btn-default" href="{% url 'dashboard:a_investment_detail' item.id %}">
+                                    <a class="btn btn-default" href="{% url 'dashboard:a_investment_detail' item.id %}" style="border-color:  #f39c12;;">
                                       Peer
                                     </a>
                                   </td>
@@ -124,17 +106,7 @@
             <!-- /.card -->
 
                     
-                </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <br /><br /> <br /><br /> <br /><br />
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        
     </section>
 
 

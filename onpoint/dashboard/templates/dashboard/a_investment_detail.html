@@ -43,24 +43,33 @@
         <div class="row">
           
           <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Admin Dashboard</h3>
-              </div>
+            
               <!-- /.card-header -->
               <!-- form start -->
+              <div class="card">
+                      <div class="card-header" style="background-color: #f39c12; color: #0e1326">
+                        <h3 class="card-title">Admin Dashboard</h3>
 
-              <div class="row container center">
+                        <div class="card-tools">
+                          <div class="input-group input-group-sm">
+                            
 
-               <div class="col-lg-12 col-md-12">
+                           
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.card-header -->
+
+
+
 
                 <form method="post">
                   {% csrf_token %}
 
 
                   <div class="card-body" style="background-color: #0e1326">
-                  <h3>{{ investment.app_user.full_name }}</h3>
+                  <h3 style="color: #f39c12; text-align: center;">Investor: {{ investment.app_user.full_name }}</h3>
+                  <hr style="background-color: #f39c12">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Enter Amount(N)</label>
                     <input name="amount" type="number" class="form-control" id="exampleInputPassword1">
@@ -69,7 +78,7 @@
 
                   {% if app_users %}
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Enter Amount</label>
+                    <label for="exampleInputPassword1">Pay to:</label>
                     <select name="who_app_user_id" class="form-control" id="exampleInputPassword1">
                     {% for item in app_users %}
                       <option value="{{ item.id }}">

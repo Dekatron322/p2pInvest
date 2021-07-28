@@ -27,53 +27,75 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
+            <div class="card card-primary" >
+              <div class="card-header" >
                 <h3 class="card-title">Commit New Investment</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <br /><br /><br />
 
-              <div class="card-body" style="background-color: #0e1326">
-              <p>You have been instructed to pay:</p>
-              <h3>{{ app_user_k.full_name }}</h3>
-              <br />
-              <p>Bank Name: {{ app_user_k.bank_name }}</p>
-              <p>Account Name: {{ app_user_k.bank_account_name }}</p>
-              <p>Account Number: {{ app_user_k.bank_account_number }}</p>
+              <br>
+              <div class="container-fluid">
+              <div class="row">
 
-              <br />
-              <h1>Timer: 24hr::30min::00secs</h1>
-
-              <br /><br />
-              <small>You are to make this payment within the next few hours else you will be deactivated, hereby losing your registration fee!</small>
-
-              
-
-            </div>
-            <!-- /.card -->
-
-                    
+                <div class="col-md-12 col-12" >
+                  <!-- Profile Image -->
+            <div class="card card-yellow card-outline" style="background-color: #f39c12;">
+              <div class="card-body box-profile" style="background-color: #0e1326">
+                <div class="text-center">
+                  <p>You have been instructed to pay:</p>
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
+
+                <h3 style="color: #0e1326" class="profile-username text-center">{{ app_user.full_name }}</h3>
+
+                <p style="background-color: #0e1326" class="text-muted text-center">{{ app_user.public_key }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Recipients Name:</b> <a class="float-right">{{ app_user_k.full_name }}</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Bank Name: </b> <a class="float-right">{{ app_user_k.bank_name }}</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Account Number</b> <a class="float-right">{{ app_user_k.bank_account_number }} <i class="fas fa-copy"></i></a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Account Name</b> <a class="float-right">{{ app_user_k.bank_account_name }} </a>
+                  </li>
+                </ul>
+
+                <a href="" class="btn btn-primary btn-block"><b>Timer: 24hr::30min::00secs</b></a>
+
+                <p style="color: #f39c12; text-align: center; font-size: 15px; margin-top: 10px; margin-bottom: -10px;">You are to make this payment within the next few hours else you will be deactivated, hereby losing your registration fee!</p>
+
+              </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+    
+
+           
+                  
+                </div>
+
+
+
+              </div>
+            </div>
+      <!-- /.card -->  
     </section>
+
+  </div>
+
+
 
     <!-- Main Footer -->
   <footer class="main-footer" style="background-color: #2d3653">
