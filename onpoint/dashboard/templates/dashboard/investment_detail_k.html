@@ -41,35 +41,52 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <div class="col-md-12 mt-2">
 
-              <div class="card-body" style="background-color: #0e1326">
-              <h2>Congratulations!</h2>
-              <p>You have been peered to receive payment from:</p>
-              <h3>{{ investment.app_user.full_name }}</h3>
-              <br />
-              <p>Amount: {{ investment.amount }}</p>
-              <p>Phone Number: {{ investment.app_user.phone_no }}</p>
-              <p>Language: {{ investment.app_user.language }}</p>
+                  <!-- Profile Image -->
+            <div class="card card-yellow card-outline">
+              <div class="card-body box-profile" style="background-color: #0e1326">
+                <div class="text-center">
+                   <h1 style="text-align: center; color: #f39c12;">Congratulations!</h1>
+                   <p style="text-align: center">You have been peered to receive payment from: <b style="color: #f39c12;"> {{ investment.app_user.full_name }}</b></p>
+                </div>
 
-              <h2>Payment Status: {{ investment.paid_status }}</h2>
+                <h3 style="color: #0e1326" class="profile-username text-center">{{ app_user.full_name }}</h3>
 
-              <br />
-              <h1>Due Date: {{ investment.due_date }}</h1>
+                <p style="background-color: #0e1326" class="text-muted text-center">{{ app_user.public_key }}</p>
 
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Amount you'll recieve:</b> <a class="float-right">{{ investment.amount }}</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Phone Number</b> <a class="float-right">{{ investment.app_user.phone_no }}</a>
+                  </li>
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Language: </b> <a class="float-right">{{ investment.app_user.language }}</a>
+                  </li>
 
-              <form method="post" enctype="multipart/form-data">
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Payment Status: </b> <a class="float-right">{{ investment.paid_status }}</a>
+                  </li>
+
+                  <li style="background-color: #0e1326" class="list-group-item">
+                    <b>Due Date: </b> <a class="float-right">{{ investment.due_date }}</a>
+                  </li>
+                </ul>
+
+                <h5 style="text-align: center;">{% include 'main/timer.html' %}</h5>
+
+                <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
+                
+                  <h5 style="text-align: center;">View/Download proof of payments.</h5>
+                
                 <div class="row">
-                  <p>View/Download proof of payments.</p>
-                </div>
-                <div class="row">
-                    <a href="{{ investment.proof_photo1.url }}">View/Download Proof of payment Image 1</a>
-                </div>
-
-                <br />
-                <div class="row">
-                    <a href="{{ investment.proof_photo2.url }}">View/Download Proof of payment Image 2</a>
+                    <a class="btn btn-primary btn-block" href="{{ investment.proof_photo1.url }}">View/Download Proof of payment Image 1</a>
+ 
+                    <a class="btn btn-primary btn-block" href="{{ investment.proof_photo2.url }}">View/Download Proof of payment Image 2</a>
                 </div>
 
                 <br /><br />
@@ -85,11 +102,20 @@
                 </div>
 
                 </div>
+              </form>
+              </div>
 
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
 
+              
+                  
 
                 
-              </form>
+
+               
 
             </div>
             <!-- /.card -->

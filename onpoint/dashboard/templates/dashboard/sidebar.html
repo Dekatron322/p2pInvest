@@ -37,7 +37,8 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="{% url 'dashboard:index' %}" class="nav-link active">
+            {% url 'dashboard:index' as index %}
+            <a href="{{ index }}" class="nav-link {% if index == request.path %} active  {% endif %}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -46,7 +47,8 @@
             
           </li>
           <li class="nav-item">
-            <a href="{% url 'dashboard:profile' %}" class="nav-link">
+            {% url 'dashboard:profile' as profile %}
+            <a href="{{ profile }}" class="nav-link {% if profile == request.path %} active  {% endif %}">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Profile 
@@ -55,7 +57,8 @@
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'dashboard:commit' %}" class="nav-link">
+            {% url 'dashboard:commit' as commit %}
+            <a href="{{ commit }}" class="nav-link {% if commit == request.path %} active  {% endif %}">
               <i class="nav-icon fa fa-credit-card"></i>
               <p>
                 Commit
@@ -65,7 +68,8 @@
 
 
           <li class="nav-item">
-            <a href="{% url 'dashboard:investment' %}" class="nav-link">
+            {% url 'dashboard:investment' as investment %}
+            <a href="{{ investment }}" class="nav-link {% if investment == request.path %} active {% endif %}">
               <i class="nav-icon fa fa-credit-card"></i>
               <p>
                 My Investments
@@ -74,10 +78,11 @@
           </li>
 
           <li class="nav-item">
-            <a href="{% url 'dashboard:withdraw' %}" class="nav-link">
+            {% url 'dashboard:withdraw' as withdraw %}
+            <a href="{{ withdraw }}" class="nav-link {% if withdraw == request.path %} active  {% endif %}">
               <i class="nav-icon fa fa-credit-card"></i>
               <p>
-                Withdraw
+                Withdraw 
               </p>
             </a>
           </li>
