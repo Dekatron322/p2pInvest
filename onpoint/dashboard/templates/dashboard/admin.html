@@ -4,232 +4,377 @@
 
 
 
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center" style="background-color: #0e1326">
+    <img class="animation__wobble" src="{% static 'dashboard/dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
 
-   <!-- Navbar -->
+  <!-- Navbar -->
+  {% include 'dashboard/nav.html' %}
   <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
+  {% include 'dashboard/sidebar.html' %}
 
-<!-- Content Wrapper. Contains page content -->
-  <div class="content-wrappers">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" >
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Admin</h1>
-          </div>
+            <h1 class="m-0" style="color: #0e1326">Dashboard v2 >>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930</h1>
+          </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Admin</li>
+              <li class="breadcrumb-item active">Dashboard v2</li>
             </ol>
-          </div>
-        </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
+
+    <style type="text/css">
+    .ps-btn{
+        background-color: #ed017f !important;
+        color: #000000 !important;
+    }
+    .ps-btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    .btn-success {
+        background-color: #9a0052 !important;
+        color: #fff !important;
+        border: none;
+    }
+    .btn-success:hover{
+        background-color: #ed017f !important;
+        color: #000000 !important;
+        border: none;
+    }
+    .btn-success a:hover{
+        
+        color: #000000 !important;
+        border: none;
+    }
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+    }
+    @keyframes show-toast {
+    0%   {bottom: -100%;}
+    20%  {bottom: 50px;}
+    80%  {bottom: 50px;}
+    100% {bottom: -10%;}
+}
+
+.notification.is-toast {
+    z-index: 1;
+    position: fixed;
+    bottom: 100%;
+    right: 20px;
+    animation-name: show-toast;
+    animation-duration: 20s;
+}
+@media(max-width: 450px) {
+    h3{
+      font-size: 15px !important;
+    }
+  }
+</style>
+
+  {% if messages %}
+    {% for message in messages %}
+        <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Info boxes -->
         <div class="row">
-          
-          
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box" style="background-color: #0e1326" >
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
-                  <div class="col-md-12 col-lg-12">
-                    <div class="card">
-<<<<<<< HEAD
-                      <div class="card-header" style="background-color: #f39c12; color: #0e1326">
-                        <h3 class="card-title">Responsive Hover Table</h3>
-=======
-                      <div class="card-header">
-                        <h3 class="card-title">All Investments({{ investments.count }})</h3>
->>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
-
-                        
-                      </div>
-                      <!-- /.card-header -->
-                      {% if investments %}
-                      <div class="card-body table-responsive p-0" style="background-color: #0e1326">
-                        <table class="table table-hover text-nowrap">
-                          <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>User</th>
-                              <th>Date</th>
-                              <th>Package Selected</th>
-                              <th>Status</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            
-                              {% for item in investments %}
-                                <tr>
-                                  <td>{{ item.id }}</td>
-                                  <td>{{ item.app_user.full_name }}</td>
-                                  <td>{{ item.pub_date }}</td>
-                                  <td>package</td>
-                                  <td>
-                                    {% if item.who_app_user_id == "none" %}
-                                      Not Peered
-                                    {% else %}
-                                      Peered
-                                    {% endif %}
-                                  </td>
-                                  <td>
-                                    <a class="btn btn-default" href="{% url 'dashboard:a_investment_detail' item.id %}" style="border-color:  #f39c12;;">
-                                      Peer
-                                    </a>
-                                  </td>
-                                </tr>
-                              {% endfor %}
-                            
-                            
-                          </tbody>
-                        </table>
-                      </div>
-                      {% else %}
-
-                      <div class="row container">
-                        
-                        <br /><br /><br />
-                        <h2 class="container">Sorry, No Investments Yet!</h2>
-                        <br /><br /><br />
-
-                      </div>                
-
-                      {% endif %}
-
-
-                      <br /><br /><br />
-                      
-
-                      <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
-                <div class="row container center">
-
-                  <div class="col-md-12 col-lg-12">
-                    <div class="card">
-                      <div class="card-header">
-                        <h3 class="card-title">All Users({{ app_users.count }})</h3>
-
-                        <div class="card-tools">
-                          <div class="input-group input-group-sm">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                            <div class="input-group-append">
-                              <button type="submit" class="btn btn-default">
-                                <i class="fas fa-search"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /.card-header -->
-                      {% if app_users %}
-                      <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap">
-                          <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>User</th>
-                              <th>Date</th>
-                              <th>Status</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            
-                              {% for item in app_users %}
-                                <tr>
-                                  <td>{{ item.id }}</td>
-                                  <td>{{ item.full_name }}</td>
-                                  <td>{{ item.pub_date }}</td>
-                                  <td>
-                                    {% if item.status == False %}
-                                      Not Approved
-                                    {% else %}
-                                      Approved
-                                    {% endif %}
-                                  </td>
-                                  <td>
-                                    <a class="btn btn-default" href="{% url 'dashboard:a_app_user_detail' item.id %}">
-                                      Edit
-                                    </a>
-                                  </td>
-                                </tr>
-                              {% endfor %}
-                            
-                            
-                          </tbody>
-                        </table>
-                      </div>
-                      {% else %}
-
-                      <div class="row container">
-                        
-                        <br /><br /><br />
-                        <h2 class="container">Sorry, No Users Yet!</h2>
-                        <br /><br /><br />
-
-                      </div>                
-
-                    {% endif %}
-
-
-                      <br /><br /><br />
-                      
-
-                      <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                  </div>
-                </div>
-
-              
+              <div class="info-box-content">
+                <span class="info-box-text"> All Investments</span>
+                <span class="info-box-number">
+                 {{ investments.count }}
+                 
+                </span>
+              </div>
+              <!-- /.info-box-content -->
             </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3" style="background-color: #0e1326">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
+              <div class="info-box-content">
+                <span class="info-box-text">All Users</span>
+                <span class="info-box-number">{{ app_users.count }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
 
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
 
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3" style="background-color: #0e1326">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
+              <div class="info-box-content">
+                <span class="info-box-text">Approved Users</span>
+                <span class="info-box-number">1</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3" style="background-color: #0e1326">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
+              <div class="info-box-content">
+                <span class="info-box-text">Not Approved</span>
+                <span class="info-box-number">2</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
 
+        
 
+        <!-- Main row -->
+        
+            <!-- /.card -->
+            <div class="row">
+              <div class="col-md-12">
+                <!-- DIRECT CHAT -->
+<!-- TABLE: LATEST ORDERS -->
+            <div class="card">
+              <div class="card-header border-transparent" style="background-color:#f39c12; color: #0e1326"> 
+                <h3 class="card-title">Peer Investors</h3>
 
-
-
-              
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              {% if investments %}
+              <div class="card-body p-0" style="background-color: #0e1326">
+                <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>User</th>
+                      <th>Date</th>
+                      <th>Package Selected</th>
+                      <th>Status</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in investments %}
+                      <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.app_user.full_name }}</td>
+                        <td>{{ item.pub_date }}</td>
+                        <td>package</td>
+                        <td>
+                          {% if item.who_app_user_id == "none" %}
+                            <span class="badge badge-warning">not peered</span>
+                          {% else %}
+                            <span class="badge badge-success">peered</span>
+                          {% endif %}
+                        </td>
+                        <td>
+                          <a class="btn btn-sm btn-info" href="{% url 'dashboard:a_investment_detail' item.id %}">
+                             Peer User
+                          </a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix" style="background-color: #000">
+                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+              </div>
+              <!-- /.card-footer -->
             </div>
             <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          {% else %}
 
+            <div class="row container">         
+              <h2 class="container">Sorry, No Users Yet!</h2>
+            </div>                
 
+          {% endif %}
 
+              
+            <div class="col">
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="card">
+              <div class="card-header border-transparent" style="background-color:#f39c12; color: #0e1326">
+                <h3 class="card-title">Latest Orders</h3>
 
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              {% if app_users %}
+              <div class="card-body p-0" style="background-color: #0e1326">
+                <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>User</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in app_users %}
+                      <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.full_name }}</td>
+                        <td>{{ item.pub_date }}</td>
+                        <td>
+                          {% if item.status == False %}
+                            <span class="badge badge-warning">Not Approved</span> 
+                          {% else %}
+                           <span class="badge badge-success">Approved</span> 
+                          {% endif %}
+                        </td>
+                        <td>
+                          <a class="btn btn-sm btn-info" href="{% url 'dashboard:a_app_user_detail' item.id %}">
+                            Edit User
+                          </a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+              </div>
+            <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          {% else %}
 
-                    
-        
+            <div class="row container">         
+              <h2 class="container">Sorry, No Users Yet!</h2>
+            </div>                
+
+          {% endif %}
+
     </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 
 
+
+<!-- Main Footer -->
+  <footer class="main-footer" style="background-color: #2d3653">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+   
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
 </div>
 <!-- ./wrapper -->
+<script type="text/javascript">
+  let ws = new WebSocket("wss://stream.binance.com:9443/ws/ethbusd@trade");
+  let bs = new WebSocket("wss://stream.binance.com:9443/ws/btcbusd@trade");
+  let bn = new WebSocket("wss://stream.binance.com:9443/ws/bnbbusd@trade");
+  let stockPriceElement = document.getElementById('btc-price');
+  let stockPriceElements = document.getElementById('eth-price');
+  let bnbPriceElements = document.getElementById('bnb-price');
+  let lastPrice = null;
 
+  bs.onmessage = (event) => {
+    let stockObject = JSON.parse(event.data)
+    let price = parseFloat(stockObject.p).toFixed(2);
+    stockPriceElement.innerText = price;
 
+    stockPriceElement.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
+    lastPrice = price;
+}
+
+  ws.onmessage = (event) => {
+    let stockObject = JSON.parse(event.data)
+    let price = parseFloat(stockObject.p).toFixed(2);
+    stockPriceElements.innerText = price;
+
+    stockPriceElements.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
+    lastPrice = price;
+}
+
+bn.onmessage = (event) => {
+    let stockObject = JSON.parse(event.data)
+    let price = parseFloat(stockObject.p).toFixed(2);
+    bnbPriceElements.innerText = price;
+
+    bnbPriceElements.style.color = !lastPrice || lastPrice === price ? 'white' : price > lastPrice ? 'green' : 'red';
+    lastPrice = price;
+}
+</script>
 
 {% endblock %}
-
 
 
 

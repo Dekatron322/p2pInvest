@@ -27,6 +27,7 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -71,20 +72,21 @@
                     <b>Account Name</b> <a class="float-right">{{ app_user_k.bank_account_name }} </a>
                   </li>
                 </ul>
-=======
+                    =======
               <br />
-              <h1>Due Date: {{ investment.due_date }}</h1>
+              <h5 style="text-align: center; color: #f39c12">Due Date: {{ investment.due_date }}</h5>
 
 
               <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-
+                  <div class="container-fluid">
                 <div class="row">
-                  <p>Upload proof of payment once you have made the payment.</p>
+                  <p style="text: center;" class="text-center; float-sm-right">Upload proof of payment once you have made the payment.</p>
+                </div>
                 </div>
                 <div class="row">
 
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-12 col-md-12">
                       <div class="form-group">
                       <label for="exampleInputFile">Upload Proof of payment 1</label>
                       <div class="input-group">
@@ -101,7 +103,7 @@
                 </div>
 
                   <div class="row">
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-12 col-md-12">
                       <div class="form-group">
                       <label for="exampleInputFile">Upload Proof of payment 2</label>
                       <div class="input-group">
@@ -113,12 +115,8 @@
                           <span class="input-group-text">Upload</span>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-
+                    </div>  
+                  <button type="submit" class="btn btn-primary">Submit Proof</button>
                 </div>
 
 
@@ -127,9 +125,10 @@
               </form>
 >>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
 
-                <a href="" class="btn btn-primary btn-block"><b>Timer: 24hr::30min::00secs</b></a>
 
-                <p style="color: #f39c12; text-align: center; font-size: 15px; margin-top: 10px; margin-bottom: -10px;">You are to make this payment within the next few hours else you will be deactivated, hereby losing your registration fee!</p>
+                <a href="" class="btn btn-primary btn-block"><b><span>Timer: {% include "main/timer.html" %}</span></b></a>
+
+                <h5 style="color: #f39c12; text-align: center; font-size: 15px; margin-top: 10px; margin-bottom: -10px;">You are to make this payment within the next few hours else you will be deactivated, hereby losing your registration fee!</h5>
 
               </div>
               <!-- /.card-body -->

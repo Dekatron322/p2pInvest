@@ -227,6 +227,28 @@ def InvestmentView(request):
 	    }
 		return render(request, "dashboard/investments.html", context )
 
+def WithdrawView(request):
+
+	app_user = AppUser.objects.get(user__pk=request.user.id)
+
+	investments = Investment.objects.filter(app_user__pk=app_user.id).order_by('-pub_date')
+	investments_k = Investment.objects.filter(who_app_user_id=app_user.id).order_by('-pub_date')
+
+
+	if request.method == "POST":
+		pass
+
+
+
+	else:
+
+		context = {
+			"investments": investments,
+			"investments_k": investments_k,
+	    }
+		return render(request, "dashboard/withdraw.html", context )
+
+
 
 
 

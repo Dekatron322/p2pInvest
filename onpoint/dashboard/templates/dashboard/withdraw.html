@@ -28,58 +28,49 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <section class="content">
+   
+
+
+            <!-- Main content -->
+    <section class="content" >
       <div class="container-fluid">
         <div class="row">
           
           <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Your Commits</h3>
+              <div class="card-header" style="background-color:#f39c12; color: #0e1326">
+                <h3 class="card-title">Your Investment(Peered)</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              {% if investments %}
+
+              {% if investments_k %}
                       <div class="card-body table-responsive p-0" style="background-color: #0e1326;">
                         <table class="table table-hover text-nowrap">
                           <thead>
                             <tr>
                               <th>ID</th>
                               <th>Date</th>
-<<<<<<< HEAD
-                              <th>Package</th>
-=======
-                              <th>Peering Status</th>
                               <th>Payment Status</th>
->>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
                               <th></th>
                             </tr>
                           </thead>
                           <tbody>
                             
-                              {% for item in investments %}
+                              {% for item in investments_k %}
                                 <tr>
                                   <td>{{ item.id }}</td>
                                   <td>{{ item.pub_date }}</td>
-                                  <td>Package</td>
-                                  <td>
-                                    {% if item.peered_status == False %}
-                                      <p>Not Peered</p>
-                                    {% else %}
-                                      <p>Peered</p>
-                                    {% endif %}
-                                  </td>
                                   <td>
                                     {% if item.paid_status == False %}
-                                      <p>Not Paid</p>
+                                      <span class="badge badge-warning">Not Paid</span>
                                     {% else %}
-                                      <p>Paid</p>
+                                      <span class="badge badge-success">Paid</span>
                                     {% endif %}
                                   </td>
                                   <td>
-                                    <a class="btn btn-primary" href="{% url 'dashboard:investment_detail' item.id %}">
+                                    <a class="btn btn btn-sm btn-info" href="{% url 'dashboard:investment_detail_k' item.id %}">
                                       View more
                                     </a>
                                   </td>
@@ -90,15 +81,12 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="card-outline" style="background-color: #f39c12"><div></div> </div>
-            <!-- /.card -->
                       {% else %}
-
 
                       <div class="row container">
                         
-                        
-                        <h2 class="container">Sorry, No Investments Yet!</h2>
+                        <br /><br /><br />
+                        <h2 class="container">You will be peered soon!</h2>
                         <br /><br /><br />
 
                       </div>                
@@ -110,6 +98,15 @@
                 </div>
               </div>
             </section>
+            
+
+
+
+
+
+
+
+
 
     <!-- Main Footer -->
   <footer class="main-footer" style="background-color: #2d3653">

@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('profile/', views.ProfileView, name="profile"),
     path('investment/', views.InvestmentView, name="investment"),
+    path('withdraw/', views.WithdrawView, name="withdraw"),
     path('investment-detail/<int:investment_id>/', views.InvestmentDetailView, name="investment_detail"),
     path('investment-detail/k//<int:investment_id>/', views.InvestmentDetailKView, name="investment_detail_k"),
 
@@ -24,9 +25,9 @@ urlpatterns = [
     path('admin-investment-detail/<int:investment_id>/', views.AInvestmentDetailView, name="a_investment_detail"),
     path('admin-user-detail/<int:app_user_id>/', views.AAppUserDetailView, name="a_app_user_detail"),
 
-<<<<<<< HEAD
-=======
+#<<<<<<< HEAD
+#=======
     
 
->>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
+#>>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
 ]
