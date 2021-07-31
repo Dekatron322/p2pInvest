@@ -10,6 +10,11 @@
   <!-- Main Sidebar Container -->
   {% include 'dashboard/sidebar.html' %}
 <!-- Content Wrapper. Contains page content -->
+
+<style type="text/css">
+
+
+  </style>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -35,7 +40,7 @@
           <div class="col-md-3">
 
             <!-- Profile Image -->
-            <div class="card card-primary card-outline">
+            <div class="card card-yellow card-outline">
               <div class="card-body box-profile" style="background-color: #0e1326">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
@@ -59,14 +64,14 @@
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Change Photo</b></a>
+                <a href="#" class="btn btn-warning btn-block"><b>Change Photo</b></a>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
 
             <!-- About Me Box -->
-            <div class="card card-primary">
+            <div class="card card-warning">
               <div class="card-header">
                 <h3 class="card-title">Details</h3>
               </div>
@@ -110,7 +115,7 @@
           <!-- /.col -->
           <div class="col-md-9">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-warning">
               <div class="card-header">
                 <h3 class="card-title">Update Profile</h3>
               </div>
@@ -120,8 +125,8 @@
                 {% csrf_token %}
                 <div class="card-body" style="background-color: #0e1326">
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Full Name</label>
-                    <input name="full_name" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your full name" value="{{ app_user.full_name }}">
+                    <label for="inputWarning">Full Name</label>
+                    <input name="full_name" type="text" class="form-control is-warning" id="inputWarning" placeholder="Enter your full name" value="{{ app_user.full_name }}">
                   </div>
 
                   <div class="form-group">
@@ -157,24 +162,25 @@
                   </div>
 
                   ---->
-
-
                   
-                  <div class="row">
+                <div class="row">
 
                     <div class="col-lg-6 col-md-6">
                       <div class="form-group">
                       <label for="exampleInputFile">Upload ID Card Photo</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input name="id_image" type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
+                          <input name="id_image" type="file" class="form-control upload-box btn btn-primary" >
+                          <label style="display: none">Choose file</label>
                         </div>
                       </div>
                     </div>
+
+                    <div class="form-group">
+                    <!-- <label for="customFile">Custom File</label> -->
+
+                    
+                  </div>
 
                     </div>
                     <div class="col-lg-6 col-md-6">
