@@ -35,7 +35,7 @@
           <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary" >
-              <div class="card-header" >
+              <div class="card-header" style="background-color: #bba14f; color: #0e1326">
                 <h3 class="card-title">Commit New Investment</h3>
               </div>
               <!-- /.card-header -->
@@ -53,11 +53,10 @@
                   <p>You have been instructed to pay:</p>
                 </div>
 
+
                 <h3 style="color: #0e1326" class="profile-username text-center">{{ app_user.full_name }}</h3>
 
                 <p style="background-color: #0e1326" class="text-muted text-center">{{ app_user.public_key }}</p>
-
-<<<<<<< HEAD
                 <ul class="list-group list-group-unbordered mb-3">
                   <li style="background-color: #0e1326" class="list-group-item">
                     <b>Recipients Name:</b> <a class="float-right">{{ app_user_k.full_name }}</a>
@@ -72,32 +71,31 @@
                     <b>Account Name</b> <a class="float-right">{{ app_user_k.bank_account_name }} </a>
                   </li>
                 </ul>
-                    =======
               <br />
               <h5 style="text-align: center; color: #f39c12">Due Date: {{ investment.due_date }}</h5>
+              <p style="text-align: center;">Upload proof of payment once you have made the payment.</p>
 
 
               <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                   <div class="container-fluid">
-                <div class="row">
-                  <p style="text: center;" class="text-center; float-sm-right">Upload proof of payment once you have made the payment.</p>
-                </div>
-                </div>
+
+
+
                 <div class="row">
 
                     <div class="col-lg-12 col-md-12">
                       <div class="form-group">
                       <label for="exampleInputFile">Upload Proof of payment 1</label>
+
                       <div class="input-group">
                         <div class="custom-file">
-                          <input name="proof_photo1" type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
+                          <input name="proof_photo1" type="file" class="form-control upload-box btn btn-primary" >
+                          <label style="display: none">Choose file</label>
                         </div>
                       </div>
+
+                      
                     </div>
                   </div>
                 </div>
@@ -106,25 +104,25 @@
                     <div class="col-lg-12 col-md-12">
                       <div class="form-group">
                       <label for="exampleInputFile">Upload Proof of payment 2</label>
+
                       <div class="input-group">
                         <div class="custom-file">
-                          <input name="proof_photo2" type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
+                          <input name="proof_photo2" type="file" class="form-control upload-box btn btn-primary" >
+                          <label style="display: none">Choose file</label>
                         </div>
                       </div>
-                    </div>  
+                      </div>
+                    </div>
+                    <br>  
                   <button type="submit" class="btn btn-primary">Submit Proof</button>
                 </div>
+              </div>
+              <br>
 
 
 
                 
               </form>
->>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
-
 
                 <a href="" class="btn btn-primary btn-block"><b><span>Timer: {% include "main/timer.html" %}</span></b></a>
 

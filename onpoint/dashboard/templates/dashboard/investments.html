@@ -36,7 +36,7 @@
           <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
-              <div class="card-header">
+              <div class="card-header" style="background-color: #bba14f; color: #0e1326;">
                 <h3 class="card-title">Your Commits</h3>
               </div>
               <!-- /.card-header -->
@@ -48,12 +48,10 @@
                             <tr>
                               <th>ID</th>
                               <th>Date</th>
-<<<<<<< HEAD
                               <th>Package</th>
-=======
                               <th>Peering Status</th>
                               <th>Payment Status</th>
->>>>>>> 0eaa1d0fa84ff41a4e37b735771fbc797f55e930
+
                               <th></th>
                             </tr>
                           </thead>
@@ -73,9 +71,9 @@
                                   </td>
                                   <td>
                                     {% if item.paid_status == False %}
-                                      <p>Not Paid</p>
+                                      <span class="badge badge-warning">Not Paid</span>
                                     {% else %}
-                                      <p>Paid</p>
+                                     <span class="badge badge-success">Paid</span>
                                     {% endif %}
                                   </td>
                                   <td>

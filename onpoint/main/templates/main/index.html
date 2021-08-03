@@ -21,6 +21,25 @@
             background-color: #f5bd02;
             color: #161f31;
         }
+
+        .ps-btns{
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px #161f31;
+            background-color: #161f31;
+            color: #f5bd02 !important;
+        }
+
+        .ps-btns:hover{
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px #f5bd02;
+            background-color: #f5bd02;
+            color: #161f31 !important;
+        }
+
     </style>
      <div class="ps-block--promotion-header bg--cover" data-background="img/promotions/header-promotion.jpg">
         <div class="container">
@@ -81,7 +100,7 @@
         </div>
         
     </header>
-    <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="{% url 'dashboard:sign_up' %}" style="background-color: #0e1326; color: #f5bd02">SingUp</a><a class="ps-btn" href="checkout.html" style="background-color: #8b511f; color: #0e1326">Contact</a><a style="padding-left: 10px; padding-right: 10px; background-color: #0e1326; color: #f5bd02" class="ps-btn" href="{% url 'dashboard:sign_in' %}">SignIn</a></nav>
+    <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="{% url 'dashboard:sign_up' %}" style="background-color: #0e1326; color: #f5bd02">SingUp</a><a style="padding-left: 10px; padding-right: 10px; background-color: #7f6338; color: #0e1326" class="ps-btn" href="{% url 'dashboard:sign_in' %}">SignIn</a></nav>
     <div class="ps-panel--sidebar" id="cart-mobile">
         
     </div>
@@ -136,7 +155,7 @@
                 </div>
             </div>
         </div> 
-        <div class="ps-site-features" style=" background: linear-gradient(to right,#2d3653, #f5bd02 );">
+        <div class="ps-site-features" style=" background: linear-gradient(to right,#2d3653, #7f6338 );">
             <div class="container">
                 <div class="ps-block--site-features ps-block--site-features-2">
                     <div class="ps-block__item">
@@ -288,7 +307,13 @@
                     </div>
                 </div>
 
+
+
             </div>
+
+
+
+            
 
         </div>
        
@@ -327,8 +352,11 @@
                         </figure>
                     </div>
                     <div class="ps-section__footer">
-                        <p>Trust is our currency. We are committed to the security of your money and the protection of your account. That is how we earn your trust.</p>
+                        <p style="color: #161f31">Trust is our currency. We are committed to the security of your money and the protection of your account. That is how we earn your trust.</p>
                     </div>
+                    <div class="ps-section__footer" style="margin-bottom: -20px; margin-top: 10px">
+                    <h3 style=" margin-top: 10px; color: #161f31">Invest with Us</h3><a class="ps-btns" href="{% url 'dashboard:sign_up' %}">Get Started</a>
+                </div>
                 </div>
             </div>
         </div>
@@ -401,13 +429,13 @@
                     </div>
                 </div>
                 <div class="ps-section__footer">
-                    <p>Still have more questions? Feel free to contact us.</p><a class="ps-btn" href="#">Contact Us</a>
+                    <p>Begin your journey to financial stability now</p><a class="ps-btn" href="{% url 'dashboard:sign_up' %}">Get Started</a>
                 </div>
             </div>
         </div>
         <div style="background-color: #fff" class="ps-vendor-banner bg--cover" data-background="{% static 'main/image/bitcoin-1813503_1280.jpg' %}">
             
-                <h2 style="color: #fff">It's time to start making money.</h2><a class="ps-btn ps-btn--lg" href="comming-soon.html">Get Started</a>
+                <h2 style="color: #fff">It's time to start making money.</h2><a class="ps-btn ps-btn--lg" href="{% url 'dashboard:sign_up' %}">Get Started</a>
             </div>
         </div>
     </div>

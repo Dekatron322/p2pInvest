@@ -36,14 +36,14 @@
           <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
-              <div class="card-header">
+              <div class="card-header" style="background-color: #f39c12; color: #0e1326;">
                 <h3 class="card-title">Commit New Investment</h3>
               </div>
+
               <!-- /.card-header -->
               <!-- form start -->
-
-              <br /><br />
-              <div class="row container">
+              <div class="container-fluid">
+              <div class="row" style="background-color: #0e1326">
 
                 <div class="col-md-6">
                   <p>Package 1</p>
@@ -56,18 +56,19 @@
                   <img src="{% static 'main/img/default_bg.png' %}">
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6" style="margin-bottom: 20px">
                   <br /><br />
                   <p>Click complete to ready to be invest, you will be paried with someone to pay.</p>
                   <form method="post">
                     {% csrf_token %}
-                    <button type="submit">Complete</button>
+                    <button class="btn btn-primary btn-block" type="submit">Complete</button>
                     
                   </form>
                   
                 </div>
 
               </div>
+            </div>
 
 
 
