@@ -62,8 +62,9 @@
                     
                 </div>
                 <div class="header__right">
-                    <div class="header__actions"><a class="header__extra" href="dashboard/"><h5 style="margin-top: 12px; color: #f5bd02">Home</h5></a><a class="header__extra" href="#"><h5 style="margin-top: 12px; color: #f5bd02; color: #f5bd02; color: #f5bd02">About</h5></a>
-                        <div class="ps-cart--mini"><a class="header__extra" href="#"><h5 style="margin-top: 12px; color: #f5bd02">Contact</h5></a>
+                    <div class="header__actions"><a class="header__extra" href="#home"><h5 style="margin-top: 12px; color: #f5bd02">Home</h5></a><a class="header__extra" href="#about"><h5 style="margin-top: 12px; color: #f5bd02; color: #f5bd02; color: #f5bd02">About</h5></a>
+                        <a class="header__extra" href="#faqs"><h5 style="margin-top: 12px; color: #f5bd02; color: #f5bd02; color: #f5bd02">FAQS</h5></a>
+                        <div class="ps-cart--mini"><a class="header__extra" href="#contact"><h5 style="margin-top: 12px; color: #f5bd02">Contact</h5></a>
                             
                         </div>
                         <div class="ps-block--user-header">
@@ -81,7 +82,7 @@
         </div>
     </header>
 
-    <header class="header header--mobile" data-sticky="true">
+    <header class="header header--mobile" data-sticky="true" >
         <div class="header__top">
             
             <div>
@@ -128,7 +129,7 @@
 }
     </style>
     
-    <div class="ps-download-app" style="background-color: #bba14f; padding-bottom: 30px">
+    <div class="ps-download-app" style="background-color: #bba14f; padding-bottom: 30px" id="home">
             <div class="ps-container" style="background-color: #bba14f">
                 <div class="ps-block--download-app" style="background-color: #bba14f">
                     <div class="container">
@@ -190,7 +191,7 @@
             </div>
         </div>
 
-        <div class="ps-section--vendor ps-vendor-about" style="background-color: #0e1326; color: #8b511f">
+        <div class="ps-section--vendor ps-vendor-about" style="background-color: #0e1326; color: #8b511f" id="about">
             <div class="container">
                 <div class="ps-section__header" >
                     <p style="color: #8b511f">WHY INVEST ON ONPOINTCURRENCY</p>
@@ -227,13 +228,8 @@
                                 <div class="ps-block__content">
                                     <h4 style="color: #8b511f">Earn While you Sleep</h4>
                                     <div class="ps-block__desc" data-mh="about-desc">
-                                        <p style="color: #fff">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </div><a href="#">Learn more</a>
+                                        <p style="color: #fff">looking for trustworthy and secure way to automate your earnings so that it requires little to no maintenance on a monthly basis for that income to continue to pour in?. OnpointCurrency makes your wish possible, with is innovative and risk free platform </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -325,17 +321,10 @@
                     <h4 style="color: #161f31">Affordable, transparent, and secure</h4>
                 </div>
                 <div class="ps-section__content">
-                    <h5 style="color:#161f31">It doesn’t cost a thing to list up to 50 items a month, and you only pay after your stuff sells. It’s just a small percent of the money you earn</h5>
-                    <div class="ps-section__numbers">
-                        <figure>
-                            <h3>$0</h3><span>List Fee</span>
-                        </figure>
-                        <figure>
-                            <h3>$0</h3><span>List Fee</span>
-                        </figure>
-                        <figure>
-                            <h3>5%</h3><span>Final Value Fee</span>
-                        </figure>
+                    <h5 style="color:#161f31">Experience what separates us from other platforms when you make your first deposit and begin earning. </h5>
+
+                    <div class="ps-section__footer" style="margin-bottom: 20px; margin-top: 10px">
+                    <a class="ps-btns" href="{% url 'dashboard:sign_up' %}">Get Started</a>
                     </div>
                     <div class="ps-section__desc">
                         <figure>
@@ -393,7 +382,7 @@
                 </div>
             </div>
         </div>
-        <div class="ps-section--vendor ps-vendor-faqs" style="background-color: #bba14f">
+        <div class="ps-section--vendor ps-vendor-faqs" id="faqs" style="background-color: #bba14f">
             <div class="container">
                 <div class="ps-section__header">
                     <p style="color: #161f31">FREQUENTLY ASKED QUESTIONS</p>
@@ -403,26 +392,63 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                             <figure>
-                                <figcaption style="color: #161f31 !important">How do fees work on OnpointCurrency</figcaption>
-                                <p style="color: #161f31 !important">Joining and starting a shop on Martfury is free. There are three basic selling fees: a listing fee, a transaction fee, and a payment processing fee.</p>
-                                <p style="color: #161f31 !important">It costs USD 0.20 to publish a listing to the marketplace. A listing lasts for four months or until the item is sold. Once an item sells, there is a 3.5% transaction fee on the sale price (not including shipping costs). If you accept payments with PayPal, there is also a payment processing fee based on their fee structure.</p>
-                                <p style="color: #161f31 !important">Listing fees are billed for $0.20 USD, so if your bank’s currency is not USD, the amount may differ based on changes in the exchange rate.</p>
+                                <figcaption style="color: #161f31 !important">What is OnpointCurrency?</figcaption>
+                                <p style="color: #161f31 !important">OnpointCurrency is a blockchain based platform owned by a Nigerian based Italian enthusiast known as Adrano Fonara and it is the first blockchain based P2P platform with a unique mission to help enrich people by creating a secure decentralized investment system</p>
+                                <p style="color: #161f31 !important">OnpointCurrency helps make investing seamless and transparent. OnpointCurrency eliminates the stress and planning required to invest on a regular basis through its automated and easy-to-use platform. </p>
+                                
                             </figure>
                             <figure>
-                                <figcaption style="color: #161f31 !important">What do I need to do to be eigible?</figcaption>
-                                <p style="color: #161f31 !important">It’s easy to set up a shop on Martfury. Create an Martfury account (if you don’t already have one), set your shop location and currency, choose a shop name, create a listing, set a payment method (how you want to be paid), and finally set a billing method (how you want to pay your Martfuryfees).</p>
+                                <figcaption style="color: #161f31 !important">How Safe is OnpointCurrency?</figcaption>
+                                <p style="color: #161f31 !important">OnpointCurrency was developed with the security of your payment data in mind.</p>
+                               
+                                <p style="color: #161f31 !important">Critical customer data is encrypted and securely stored. </p>
+                               
+                            </figure>
+                            <figure>
+                                <figcaption style="color: #161f31 !important">How safe is my money?</figcaption>
+                                <p style="color: #161f31 !important">We have multiple security and safety layers embedded in the Cowrywise experience: from the security of our technology platform to carefully selected asset classes. Here are few of them:</p>
+
+                                    <p style="color: #161f31 !important"><b>Bank Level Security: </b> Our platform was carefully developed to ensure security of your data electronically. All cards and bank data are encrypted to prevent unauthorised access to sensitive information.</p>
+
+                                     <p style="color: #161f31 !important"><b>Decentralized distribution: </b> OnpointCurrency platforms do not keep currencies of their customers. Instead, they peer users with each other. It enables them to conduct transactions directly.</p>
+                                    
+                                    
+                                    
+                                    <p style="color: #161f31 !important"><b>Know Your Customer: </b>Building trust with your users starts with getting to know them better. A more complete understanding of your user base is only possible with the right identity and reputation tools.We implement painless, end-to-end Know Your Customer processes to ensure transparency and user trust.</p>
+                                    
+                                
                             </figure>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                             <figure>
-                                <figcaption style="color: #161f31 !important">How do I get paid?</figcaption>
-                                <p style="color: #161f31 !important">If you accept payments with PayPal, funds from PayPal sales on Martfury will be deposited into your PayPal account. We encourage sellers to use a PayPal Business account and not a Personal account, as personal accounts are subject to monthly receiving limits and cannot accept payments from buyers that are funded by a credit card.</p>
-                                <p style="color: #161f31 !important">It costs USD 0.20 to publish a listing to the marketplace. A listing lasts for four months or until the item is sold. Once an item sells, there is a 3.5% transaction fee on the sale price (not including shipping costs). If you accept payments with PayPal, there is also a payment processing fee based on their fee structure.</p>
-                                <p style="color: #161f31 !important">Listing fees are billed for $0.20 USD, so if your bank’s currency is not USD, the amount may differ based on changes in the exchange rate.</p>
+                                <figcaption style="color: #161f31 !important">How does OnpointCurrency Work?</figcaption>
+                                <p style="color: #161f31 !important">Onpoint currency works in four simple steps for better user intaraction.</p>
                             </figure>
                             <figure>
-                                <figcaption style="color: #161f31 !important">Do I need a credit or debit card ?</figcaption>
-                                <p style="color: #161f31 !important">No, a credit or debit card is not required to create a shop. To be verified as a seller you have the choice to use either a credit card or to register via PayPal. You will not incur any charges until you open your shop and publish your listings.</p>
+                                <p style="color: #161f31 !important"><b>Validation: </b> this comprises the sign up, on-time payment and KYC.</p>
+                            </figure>
+                            <figure>
+                                <p style="color: #161f31 !important"><b>Commit: </b> this stage immidiately follows after the the user has been verified and validated. in the state the user selects a package of his choice and after approval by the admin this user will be peer to another user to make his commit to, with a deadline for payment.</p>
+                            </figure>
+
+                            <figure>
+                                <p style="color: #161f31 !important"><b>Withdrawal: </b>
+                                 after this user has successful made his commit, it's his turn to earn, in this stage a user will be peered to make commit to him also with a deadline.</p>
+                            </figure>
+
+                            <figure>
+                                <figcaption style="color: #161f31 !important">How long will it take before I get paid ?</figcaption>
+                                <p style="color: #161f31 !important">After making your commit has been approved you'll get a peer after 5days maximum. and will recieve your payment under 3days</p>
+                            </figure>
+
+                            <figure>
+                                <figcaption style="color: #161f31 !important">What is the point of the one-time registration ?</figcaption>
+                                <p style="color: #161f31 !important">One time registration fee of 5$ is to ensure that only serious and reliable users will be registered on the platform, if you know you stand the risk of losing you 5$ if you dont make payment within your alocated time, you'll be compelled to situp and meet your dealine.</p>
+                            </figure>
+
+                            <figure>
+                                <figcaption style="color: #161f31 !important">What if i don't recieve payment after the allocated time ? </figcaption>
+                                <p style="color: #161f31 !important">One the deadline is passed and don't recieve your token, your peer will be deleted from the platform effective immedietely as a penalty for defaulting, and you on the other hand will recieve another peer to pay you.</p>
                             </figure>
                             
                         </div>
@@ -464,7 +490,7 @@
 
     </div>
 
-    <div class="ps-contact-form" style="background-color: #2d3653">
+    <div class="ps-contact-form" style="background-color: #2d3653" id="contact">
             <div class="container">
                 <form class="ps-form--contact-us" action="index.html" method="get">
                     <h3 style="color: #D4af37">Get In Touch</h3>

@@ -47,7 +47,7 @@
               <!-- /.card-header -->
               <!-- form start -->
               <div class="card">
-                      <div class="card-header" style="background-color: #f39c12; color: #0e1326">
+                      <div class="card-header" style="background-color: #bba14f; color: #0e1326">
                         <h3 class="card-title">Admin Dashboard</h3>
 
                         <div class="card-tools">
@@ -68,7 +68,7 @@
 
 
                   <div class="card-body" style="background-color: #0e1326">
-                  <h3 style="color: #f39c12; text-align: center;">Investor: {{ investment.app_user.full_name }}</h3>
+                  <h3 style="color: #bba14f; text-align: center;">Investor: {{ investment.app_user.full_name }}</h3>
                   <hr style="background-color: #f39c12">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Enter Amount(N)</label>
@@ -77,9 +77,9 @@
 
 
                   {% if app_users %}
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Pay to:</label>
-                    <select name="who_app_user_id" class="form-control" id="exampleInputPassword1">
+                  <div class="form-group" style="border-color: #bba14f;">
+                    <label for="exampleInputPassword1" >Pay to:</label>
+                    <select style="border-color: #bba14f;" name="who_app_user_id" class="form-control" id="exampleInputPassword1">
                     {% for item in app_users %}
                       <option value="{{ item.id }}">
                         {{ item.full_name }}
@@ -91,9 +91,9 @@
                   <div class="form-group">
                   <label>Due Date for Payment:</label>
                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input name="due_date" type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                        <input name="due_date" type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="payment due date" />
                         <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            <div class="input-group-text"><i style="color: #bba14f" class="fa fa-calendar"></i></div>
                         </div>
                     </div>
                   </div>

@@ -36,8 +36,8 @@
           <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Commit New Investment</h3>
+              <div class="card-header" style="background-color: #bba14f; color: #0e1326">
+                <h3 class="card-title">Comfirm Payment</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -47,8 +47,8 @@
             <div class="card card-yellow card-outline">
               <div class="card-body box-profile" style="background-color: #0e1326">
                 <div class="text-center">
-                   <h1 style="text-align: center; color: #f39c12;">Congratulations!</h1>
-                   <p style="text-align: center">You have been peered to receive payment from: <b style="color: #f39c12;"> {{ investment.app_user.full_name }}</b></p>
+                   <h1 style="text-align: center; color: #bba14f;">Congratulations!</h1>
+                   <p style="text-align: center">You have been peered to receive payment from: <b> {{ investment.app_user.full_name }}</b></p>
                 </div>
 
                 <h3 style="color: #0e1326" class="profile-username text-center">{{ app_user.full_name }}</h3>
@@ -84,13 +84,13 @@
                   <h5 style="text-align: center;">View/Download proof of payments.</h5>
                 
                 <div class="row">
-                    <a class="btn btn-primary btn-block" href="{{ investment.proof_photo1.url }}">View/Download Proof of payment Image 1</a>
+                    <a class="btn btn-primary btn-block" style="background-color: #bba14f; color: #0e1326" href="{{ investment.proof_photo1.url }}">View/Download Proof of payment Image 1</a>
  
-                    <a class="btn btn-primary btn-block" href="{{ investment.proof_photo2.url }}">View/Download Proof of payment Image 2</a>
+                    <a class="btn btn-primary btn-block" style="background-color: #bba14f; color: #0e1326" href="{{ investment.proof_photo2.url }}">View/Download Proof of payment Image 2</a>
                 </div>
 
                 <br /><br />
-                <select class="form-control" name="payment_status">
+                <select class="form-control" name="payment_status" style="border-color: #bba14f">
                     <option value="on" selected="selected">YES, I HAVE RECEIVED PAYMENT.</option>
                     <option value="off">NO, I HAVEN'T RECEIVED ANY PAYMENT.</option>
                 </select>
@@ -109,13 +109,6 @@
             </div>
             <!-- /.card -->
           </div>
-
-              
-                  
-
-                
-
-               
 
             </div>
             <!-- /.card -->
